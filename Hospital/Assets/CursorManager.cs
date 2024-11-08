@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static CursorManager;
 
 public class CursorManager : MonoBehaviour
 {
@@ -40,7 +41,6 @@ public class CursorManager : MonoBehaviour
 
         if (Input.GetMouseButton(0) != isButton)
         {
-
             isButton = Input.GetMouseButton(0);
 
             if (isButton) // Зажато
@@ -54,7 +54,6 @@ public class CursorManager : MonoBehaviour
             }
 
         }
-
 
         frameTimer -= Time.deltaTime;
 
