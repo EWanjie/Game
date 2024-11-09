@@ -5,7 +5,6 @@ using static CursorManager;
 
 public class CursorManager : MonoBehaviour
 {
-    
     public static CursorManager Instance {  get; private set; }
 
     [SerializeField] private List<CursorAnimation> cursorAnimationList;

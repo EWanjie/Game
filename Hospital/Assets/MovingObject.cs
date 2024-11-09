@@ -13,45 +13,52 @@ public class MovingObject : MonoBehaviour
     private int currentFrame = 0;
     private const float animationSpeed = 0.2f;
     private const float coefficient = 0.85f;
-    private Vector2[] moveAnimation = {Vector2.zero, Vector2.zero};
+    private Vector3[] moveAnimation = {Vector3.zero, Vector3.zero};
 
-    private Vector2 difference = Vector2.zero;
+    private bool wating = false;
+
+    private Vector3 difference = Vector3.zero;
 
     private TreatmentType treatment = TreatmentType.Start;
 
     public enum TreatmentType
     {
         Start,
-        Process,
-        End
-    }    
-
-    private void Start()
-    {
-        frameTimer = animationSpeed;
-        moveAnimation[0] = (Vector2)transform.localScale;
-        moveAnimation[1] = coefficient*(Vector2)transform.localScale;
+        Process
     }
 
-    private void Update() // движение персонажа
-    {
-        if (treatment == TreatmentType.Process) return;
-
-        frameTimer -= Time.deltaTime;
-
-        if (frameTimer < 0f)
+    /*
+        private void Start()
         {
-            frameTimer += animationSpeed;
-            currentFrame = (currentFrame + 1) % 2;
-            transform.localScale = moveAnimation[currentFrame];
+           frameTimer = animationSpeed;
+           moveAnimation[0] = (Vector2)transform.localScale;
+           moveAnimation[1] = coefficient*(Vector2)transform.localScale;
         }
-    }
+
+        private void Update() // движение персонажа
+        {
+            if (treatment == TreatmentType.Process) return;
+
+            frameTimer -= Time.deltaTime;
+
+            if (frameTimer < 0f)
+            {
+                frameTimer += animationSpeed;
+                currentFrame = (currentFrame + 1) % 2;
+                transform.localScale = moveAnimation[currentFrame];
+            }
+        }
+    */
 
     private void OnMouseDown() //нажатие
     {
-        if(treatment == TreatmentType.Process) return;
+        if (treatment == TreatmentType.Process)
+        {
+            if (!wating) return;
+            treatment = TreatmentType.Start;
+        }
 
-        difference = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position;
+        difference = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector3)transform.position;
 
         Priority();
     }
@@ -60,7 +67,7 @@ public class MovingObject : MonoBehaviour
     {
         if (treatment == TreatmentType.Process) return;
 
-        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
+        transform.position = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - difference;
     }
 
     private void Priority() // на передний план
@@ -79,9 +86,10 @@ public class MovingObject : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision) // объект в области действия станции
+    
+    private void OnTriggerStay2D(Collider2D collision) // объект в области действия станции
     {
+
         if (treatment == TreatmentType.Process)
             return;
 
@@ -96,44 +104,45 @@ public class MovingObject : MonoBehaviour
                 {
                     otherCollision.move = true;
                 }
-                else // объект стоит на станции
+                else // поставить объект на станцию
                 {
-                    transform.localScale = moveAnimation[0];
-
                     otherCollision.move = false;
                     otherCollision.isFree = false;
-                    transform.position = otherCollision.coordinates;
-
-                    GetComponent<CursorObject>().SetMove(otherCollision.isFree);
-
                     treatment = TreatmentType.Process;
-                    StartCoroutine(Pause(otherCollision.duration));
+                    //transform.localScale = moveAnimation[0];
+
+                    OnCentre(otherCollision);
+
+                    if (otherCollision.stationType == StationType.WatingRoom) // станция = комната ожидания
+                    {
+                        wating = true;                       
+                    }
+                    else
+                    {
+                        StartCoroutine(Pause(otherCollision)); // станция = кабинет доктора
+                    }                                      
                 }
             }
-            else if (!Input.GetMouseButton(0)) // если станция занята, но на нее пытаюстя поставить объект
+            else // если станция занята
             {
-                if (treatment == TreatmentType.End) // лечение окончено
+                if(wating) // забрать из комнаты ожидания
                 {
-                    treatment = TreatmentType.Start;
+                    wating = false;
                     otherCollision.isFree = true;
-
-                    GetComponent<CursorObject>().SetMove(otherCollision.isFree);
                 }
-
-                Push(otherCollision.coordinates, otherCollision.scale);
+                else // попытка поставить второй объект
+                {
+                    Push(otherCollision);
+                }
+                
             }
 
         }     
             
     }
 
-    private void OnCollisionExit2D(Collision2D collision) // объект вышел из области действия станции
+    private void OnTriggerExit2D(Collider2D collision) // объект вышел из области действия станции
     {
-        if (collision.gameObject.CompareTag("character")) 
-        {
-            gameObject.GetComponent<Renderer>().sortingOrder--;     
-        }
-
         if (collision.gameObject.CompareTag("helpStation"))
         {
             HelpStation otherRigidbody = collision.gameObject.GetComponent<HelpStation>();
@@ -146,16 +155,38 @@ public class MovingObject : MonoBehaviour
         }
     }
 
-    IEnumerator Pause(float time) // лечение. пауза.
+    IEnumerator Pause(Station station) // лечение. пауза.
     {
-        yield return new WaitForSeconds(time);
-        treatment = TreatmentType.End;
+        bool cursor = false;
+        GetComponent<CursorObject>().SetMove(cursor);  
+
+        yield return new WaitForSeconds(station.duration);
+
+        cursor = !cursor;
+        GetComponent<CursorObject>().SetMove(cursor);
+
+        Push(station);
+
+        station.isFree = true;
+        treatment = TreatmentType.Start;
     }
 
-    public void Push(Vector2 coordinates, Vector2 scale) // выталкивание объекта из станции
+    public void OnCentre(Station station) // постановка в центр
     {
-        Vector2 newPosition = Vector2.zero;
-        Vector2 totalScale = (Vector2)transform.localScale;
+        Vector3 newVec = (Vector3)transform.position;
+        newVec[0] = station.coordinates.x;
+        newVec[1] = station.coordinates.y;
+        transform.position = newVec;
+    }
+
+    public void Push(Station station) // выталкивание объекта из станции
+    {
+        Vector3 newPosition = (Vector3)transform.position;
+        Vector3 totalScale = (Vector3)transform.localScale;
+
+        Vector3 coordinates = (Vector3)station.coordinates;
+        Vector3 scale = (Vector3)station.scale;
+
         newPosition[0] = coordinates[0] + scale[0]/2;
         newPosition[1] = coordinates[1] - scale[1]/2;
         transform.position = newPosition;

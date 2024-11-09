@@ -15,7 +15,8 @@ public class HelpStation : MonoBehaviour
     {
         Surgeon,
         Therapist,
-        Psychologist
+        Psychologist,
+        WatingRoom
     }
 
     private void Awake()
@@ -48,7 +49,26 @@ public class HelpStation : MonoBehaviour
         }
         else
         {
-            startColor = new Color(0, 1, 0, 1);
+            switch (station.stationType)
+            {
+                case StationType.Surgeon:
+                    startColor = new Color(0, 1, 0, 1);
+                    break;
+
+                case StationType.Therapist:
+                    startColor = new Color(1, 1, 1, 1);
+                    break;
+
+                case StationType.Psychologist:
+                    startColor = new Color(0, 0, 0, 1);
+                    break;
+
+                default:
+                    startColor = new Color(0, 0, 1, 1);
+                    break;
+            }
+
+            
         }
 
         SpriteRenderer sprite;

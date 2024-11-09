@@ -17,6 +17,7 @@ public class CursorObject : MonoBehaviour
     public void SetMove(bool status)
     {
         currentType = status ? cursorType : CursorManager.CursorType.Arrow;
+        CursorManager.Instance.SetActiveCursorType(currentType);
     }
 
     private void OnMouseEnter()
