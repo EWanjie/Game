@@ -440,8 +440,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.25f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/CanvasManager.cs"
 "Assets/Scripts/BarManager.cs"
+"Assets/Scripts/CanvasManager.cs"
 "Assets/Scripts/ChatManager.cs"
 "Assets/Scripts/CursorManager.cs"
 "Assets/Scripts/CursorObject.cs"
@@ -449,6 +449,7 @@
 "Assets/Scripts/HelpStation.cs"
 "Assets/Scripts/MovingObject.cs"
 "Assets/Scripts/PersonObject.cs"
+"Assets/TypeStation.cs"
 -langversion:9.0
 /deterministic
 /optimize+

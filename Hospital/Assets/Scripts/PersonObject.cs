@@ -9,6 +9,7 @@ using static UnityEngine.Rendering.DebugUI;
 using UnityEditor;
 using static PersonObject;
 using static CursorManager;
+using static TypeStation;
 
 public class PersonObject : MonoBehaviour, IPointerClickHandler
 {
@@ -80,7 +81,7 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void SetTreatment(StationType stationType) // íà÷àëî ëå÷åíèÿ
+    public void SetTreatment(HelthType stationType) // íà÷àëî ëå÷åíèÿ
     {
         chatManager.Show(false);
         barManager.SetTransparency(ñharacter.isTreatment);
@@ -101,6 +102,8 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
 
         if (isDoctor) // ëå÷èì ïåðñîíàæà
         {
+            chatManager.SetDoctors(ñharacter.doctorsList);
+
             ñharacter.life += saveDoctor;
 
             if (ñharacter.life > maxLife)
@@ -174,6 +177,8 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
                 ñharacter.doctorsList.Add(i);
             }
         }
+
+        chatManager.SetDoctors(ñharacter.doctorsList);
     }
 
     public class Ñharacter

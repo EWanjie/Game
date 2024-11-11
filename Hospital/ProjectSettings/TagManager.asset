@@ -8,6 +8,7 @@ TagManager:
   - character
   - chat
   - bar
+  - chaticon
   layers:
   - Default
   - TransparentFX

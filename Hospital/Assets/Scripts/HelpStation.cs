@@ -10,7 +10,8 @@ public class HelpStation : MonoBehaviour
     [SerializeField] private Station station;
 
     public Station StationGS { get { return station; } }
-
+   
+    /*
     public enum StationType
     {
         Surgeon,
@@ -18,6 +19,7 @@ public class HelpStation : MonoBehaviour
         Psychologist,
         WatingRoom
     }
+    */
 
     private void Awake()
     {
@@ -28,8 +30,16 @@ public class HelpStation : MonoBehaviour
     {
         station.scale = (Vector2)transform.localScale;
         station.coordinates = (Vector2)transform.position;
-        FindColor(station.isFree, station.move);
+
+        Sprite sprite = TypeStation.Instance.GetSprite((int)station.stationType);
+        GetComponent<SpriteRenderer>().sprite = sprite;
+
+        //Destroy(GetComponent<PolygonCollider2D>());
+        //gameObject.AddComponent<PolygonCollider2D>();
+
+        //gameObject.AddComponent<PolygonCollider2D>().isTrigger = true;
     }
+
 
     private void Update()
     {
@@ -38,7 +48,8 @@ public class HelpStation : MonoBehaviour
 
     private void FindColor(bool isFree, bool move)
     {
-        Color startColor;
+        Color startColor = new Color(1, 1, 1, 1);
+
         if (!isFree)
         {
             startColor = new Color(1, 0, 0, 1);
@@ -46,29 +57,6 @@ public class HelpStation : MonoBehaviour
         else if (move)
         {
             startColor = new Color(1, 1, 0, 1);
-        }
-        else
-        {
-            switch (station.stationType)
-            {
-                case StationType.Surgeon:
-                    startColor = new Color(0, 1, 0, 1);
-                    break;
-
-                case StationType.Therapist:
-                    startColor = new Color(1, 1, 1, 1);
-                    break;
-
-                case StationType.Psychologist:
-                    startColor = new Color(0, 0, 0, 1);
-                    break;
-
-                default:
-                    startColor = new Color(0, 0, 1, 1);
-                    break;
-            }
-
-            
         }
 
         SpriteRenderer sprite;
@@ -79,9 +67,14 @@ public class HelpStation : MonoBehaviour
     [System.Serializable]
     public class Station
     {
-        public bool isFree = true;  
-        public StationType stationType;
-        public float duration;
+        public bool isFree = true;
+        public float duration = 10;
+
+        //public StationType stationType;
+        public TypeStation.HelthType stationType;
+        //public Sprite textureStation;
+
+
         [System.NonSerialized] public Vector2 coordinates = Vector2.zero;
         [System.NonSerialized] public Vector2 scale = Vector2.zero;
         [System.NonSerialized] public bool move = false;

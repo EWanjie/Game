@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public static int coutnStations = Enum.GetNames(typeof(StationType)).Length - 1;
+    public static int coutnStations = Enum.GetNames(typeof(TypeStation.HelthType)).Length - 1;
     public static int max = (int)Math.Pow(2, coutnStations);
 
     private int lifeStatus = 0;

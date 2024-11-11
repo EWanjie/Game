@@ -94,7 +94,7 @@ public class MovingObject : MonoBehaviour
 
             OnCentre(stationСrutch);
 
-            if (stationСrutch.stationType == StationType.WatingRoom) // станция = комната ожидания
+            if (stationСrutch.stationType == TypeStation.HelthType.WatingRoom) // станция = комната ожидания
             {
                 wating = true;
                 GetComponent<PersonObject>().SetWating(wating);
@@ -133,7 +133,7 @@ public class MovingObject : MonoBehaviour
 
                     OnCentre(otherCollision);
 
-                    if (otherCollision.stationType == StationType.WatingRoom) // станция = комната ожидания
+                    if (otherCollision.stationType == TypeStation.HelthType.WatingRoom) // станция = комната ожидания
                     {
                         wating = true;
                         GetComponent<PersonObject>().SetWating(wating);
