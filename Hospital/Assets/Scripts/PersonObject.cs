@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Random = UnityEngine.Random;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using UnityEditor;
 using static PersonObject;
 using static CursorManager;
 
-public class PersonObject : MonoBehaviour
+public class PersonObject : MonoBehaviour, IPointerClickHandler
 {
     private Ñharacter ñharacter = new Ñharacter();
 
@@ -22,11 +23,15 @@ public class PersonObject : MonoBehaviour
     private const int maxLife = 100;
     private int saveDoctor;
 
-    [SerializeField] BarManager barManager;
+    private BarManager barManager;
+    private ChatManager chatManager;
+    private CanvasManager canvasManager;
 
     private void Awake()
     {
         barManager = GetComponentInChildren<BarManager>();
+        chatManager = GetComponentInChildren<ChatManager>();
+        canvasManager = GetComponentInChildren<CanvasManager>();
     }
 
     private void Start()
@@ -64,19 +69,20 @@ public class PersonObject : MonoBehaviour
         }
     }
 
-    public void SetWating(bool wating)
+    public virtual void OnPointerClick(PointerEventData eventData) //èíôîğìàöèÿ î äîêòîğàõ
     {
-        dyingSpeed = wating ? watingDyingSpeed : normalDyingSpeed;
+        if (ñharacter.isTreatment)
+            return;
+
+        if (eventData.clickCount == 2)
+        {
+            chatManager.Show(true);
+        }
     }
 
-    public void SetEndHealing()
+    public void SetTreatment(StationType stationType) // íà÷àëî ëå÷åíèÿ
     {
-        barManager.SetTransparency(ñharacter.isTreatment);
-        ñharacter.isTreatment = false;
-    }
-
-    public void SetTreatment(StationType stationType)
-    {
+        chatManager.Show(false);
         barManager.SetTransparency(ñharacter.isTreatment);
         ñharacter.isTreatment = true;
         
@@ -106,13 +112,49 @@ public class PersonObject : MonoBehaviour
         }
     }
 
-    private void AnnihilateÑharacter()
+    public void SetWating(bool wating) // ëå÷åíèå
+    {
+        dyingSpeed = wating ? watingDyingSpeed : normalDyingSpeed;
+    }
+
+    public void SetEndHealing() // îêîí÷àíèå ëå÷åíèÿ
+    {
+        barManager.SetTransparency(ñharacter.isTreatment);
+        ñharacter.isTreatment = false;
+    }
+
+    private void AnnihilateÑharacter() //óíè÷òîæåíèå ïåğñîíàæà
     {
         GameManager.Instance.SaveÑharacter(ñharacter.life);
 
         Destroy(gameObject, 1);
     }
-    private void RandomDoctor()
+
+    public void OnForeground() // ïåğåäíèé ïëàí ïåğñîíàæà è èíôîğìàöèè
+    {
+        Active();
+        canvasManager.Active();
+        chatManager.Active();
+    }
+
+    private void Active()
+    {
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        if (sprite)
+            sprite.sortingOrder = 100;
+
+        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("character"))
+        {
+            SpriteRenderer otherSprite = obj.GetComponent<SpriteRenderer>();
+            if (obj != gameObject && otherSprite)
+            {
+                otherSprite.sortingOrder = 0;
+            }
+        }
+    }
+
+    private void RandomDoctor() // ğàíäîìíûé íàáîğ äîêòîğîâ
     {
         int size = GameManager.coutnStations;
         int max = GameManager.max;

@@ -12,7 +12,7 @@ public class BarManager : MonoBehaviour
 
     private float coef;
 
-    public void Start()
+    private void Start()
     {
         coef = 255 / slider.maxValue;
     }

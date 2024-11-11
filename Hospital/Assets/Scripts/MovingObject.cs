@@ -23,11 +23,19 @@ public class MovingObject : MonoBehaviour
 
     private Station stationСrutch;
 
+    ChatManager chatManager;
+
     public enum TreatmentType
     {
         Start,
         Process
     }
+
+    private void Awake()
+    {
+        chatManager = GetComponentInChildren<ChatManager>();
+    }
+
 
     /*
         private void Start()
@@ -62,7 +70,7 @@ public class MovingObject : MonoBehaviour
 
         difference = (Vector3)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector3)transform.position;
 
-        Priority();
+        GetComponent<PersonObject>().OnForeground(); 
     }
 
     private void OnMouseDrag() //удерживание
@@ -94,24 +102,6 @@ public class MovingObject : MonoBehaviour
             else
             {
                 StartCoroutine(Pause(stationСrutch)); // станция = кабинет доктора
-            }
-        }
-    }
-
-
-    private void Priority() // на передний план
-    {
-        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
-
-        if (sprite)
-            sprite.sortingOrder = 100;
-
-        foreach (GameObject obj in GameObject.FindGameObjectsWithTag("character"))
-        {
-            SpriteRenderer otherSprite = obj.GetComponent<SpriteRenderer>();
-            if (obj != gameObject && otherSprite)
-            {
-                otherSprite.sortingOrder = 0;
             }
         }
     }
