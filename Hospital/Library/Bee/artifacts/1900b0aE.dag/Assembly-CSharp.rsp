@@ -475,6 +475,7 @@
 -analyzer:"Library/PackageCache/com.unity.entities/Unity.Entities/SourceGenerators/SystemGenerator.SystemAPI.QueryBuilder.dll"
 -analyzer:"Library/PackageCache/com.unity.entities/Unity.Entities/SourceGenerators/Unity.Entities.Analyzer.CodeFixes.dll"
 -analyzer:"Library/PackageCache/com.unity.entities/Unity.Entities/SourceGenerators/Unity.Entities.Analyzer.dll"
+"Assets/GoMainMenu.cs"
 "Assets/MainMenu.cs"
 "Assets/SceneController.cs"
 "Assets/Scripts/Drag_and_Drop_V1.cs"

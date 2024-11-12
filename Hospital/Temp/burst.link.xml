@@ -1,0 +1,451 @@
+<linker>
+ <assembly fullname="Unity.Burst">
+  <type fullname="Unity.Burst.LowLevel.BurstCompilerService">
+   <method name="GetOrCreateSharedMemory"/>
+  </type>
+  <type fullname="Unity.Burst.LowLevel.BurstCompilerService">
+   <method name="RuntimeLog"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Collections">
+  <type fullname="Unity.Collections.AllocatorManager.SharedStatics.TableEntry">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Collections.AllocatorManager">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="get_ThreadIndexCount"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="MallocTracked"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="FreeTracked"/>
+  </type>
+  <type fullname="Unity.Collections.AllocatorManager.SharedStatics.IsAutoDispose">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobParallelForDeferExtensions.JobParallelForDeferProducer`1&lt;Unity.Transforms.LocalToWorldSystem.ComputeHierarchyLocalToWorldJob&gt;">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Entities">
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.TransformAuthoring&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.Static&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.LocalTransform&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.PostTransformMatrix&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.Parent&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.LocalToWorld&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.WorldUnmanaged">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeInfos">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.Entity&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedWriteGroups">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.Child&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityComponentStore">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityComponentStore.PerChunkArray.StaticIdentifier">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedEntityOffsetInfos">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityQueryImpl">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Transforms.PreviousParent&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityDataAccess">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.ECBInterop">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.Shared_SharedComponentData_FnPtrs">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.JobChunkExtensions.JobChunkProducer`1&lt;Unity.Transforms.ParentSystem.GatherChangedParents&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.CompanionLink&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.CompanionLinkTransform&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.CompanionGameObjectUpdateTransformCleanup&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.WeakAssetReferenceLoadingData&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.SceneSectionStreamingData&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.SceneSectionStreamingSystem.StreamingState&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.SceneSectionReferencedUnityObjects&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.IsSectionLoaded&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.SceneTag&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.ResolvedSectionEntity&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.LinkedEntityGroup&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.ResolvedSceneHash&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.RequestSceneLoaded&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityCommandBuffer.ECBIDAllocator">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityCommandBuffer.ECBPlaybackWithTrace">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityCommandBuffer.ECBPrePlaybackValidation">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityCommandBuffer">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.PrefabAssetReference&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.RequestEntityPrefabLoaded&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.PrefabLoadResult&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Scenes.WeakAssetPrefabLoadRequest&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.SceneReference&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.Disabled&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.EntityNameStorage">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeNames">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.Simulate&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.ManagedComponentStore.CompanionLinkTypeIndexStatic">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.ManagedComponentStore.CompanionLinkTransformTypeIndexStatic">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.ManagedComponentStore.CompanionReferenceTypeIndexStatic">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="MemCpyReplicate"/>
+  </type>
+  <type fullname="UnityEngine.Resources">
+   <method name="InstanceIDIsValid"/>
+  </type>
+  <type fullname="Unity.Entities.JobChunkExtensions.JobChunkProducer`1&lt;TransformBakingSystem.BakedRuntimeTransformsJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.JobChunkExtensions.JobChunkProducer`1&lt;Unity.Transforms.LocalToWorldSystem.ComputeWorldSpaceLocalToWorldJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.JobChunkExtensions.JobChunkProducer`1&lt;Unity.Entities.GatherEntitiesJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedDescendantCounts">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.CompanionGameObjectActiveCleanup&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Rendering.RenderMeshUnmanaged&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Rendering.MaterialMeshInfo&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Rendering.MeshRendererBakingData&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Rendering.SkinnedMeshRendererBakingData&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.Prefab&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.BakingOnlyEntity&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Rendering.EntitiesGraphicsChunkInfo&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedTypeIndex`1&lt;Unity.Entities.EntityGuid&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedSystemTypeHashes">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedSystemAttributes">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedSystemCount">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedBlobAssetRefOffsets">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.TypeManager.SharedUnityObjectRefOffsets">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.Content.RuntimeContentManager">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.SystemBaseRegistry">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.JobHandle">
+   <method name="ScheduleBatchedJobs"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Entities.Graphics">
+  <type fullname="Unity.Rendering.CallFromBurstRenderMeshArrayHelper">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Rendering.ChunkDrawCommandOutput">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Rendering.ThreadLocalCollectBuffer">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="Malloc"/>
+  </type>
+  <type fullname="Unity.Rendering.DrawBinCollector">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Entities.Hybrid">
+  <type fullname="Unity.Entities.Baking.IncrementalBakingLog.SharedEnabled">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Entities.Baking.BakeDependencies">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.RenderPipelines.Universal.Runtime">
+  <type fullname="UnityEngine.Rendering.Universal.DecalUpdateCachedSystem.UpdateTransformsJob">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Scenes">
+  <type fullname="Unity.Scenes.SceneSectionStreamingSystem">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Serialization">
+  <type fullname="Unity.Serialization.Json.UnsafeSerializedObjectReader">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="Free"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="Malloc"/>
+  </type>
+ </assembly>
+ <assembly fullname="Unity.Transforms.Hybrid">
+  <type fullname="Unity.Entities.CompanionGameObjectUpdateTransformSystem">
+   <method name=".cctor"/>
+  </type>
+ </assembly>
+ <assembly fullname="UnityEngine.CoreModule">
+  <type fullname="Unity.Jobs.JobHandle">
+   <method name="ScheduleBatchedJobsAndComplete"/>
+  </type>
+  <type fullname="Unity.Jobs.JobHandle">
+   <method name="CombineDependenciesInternalPtr_Injected"/>
+  </type>
+  <type fullname="Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility">
+   <method name="CreateMarker__Unmanaged"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="GetWorkStealingRange"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Transforms.ParentSystem.GatherChildEntities&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Transforms.ParentSystem.FindMissingChild&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Transforms.ParentSystem.FixupChangedChildren&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="Schedule_Injected"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="ScheduleParallelFor_Injected"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="Create"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="LeakRecord"/>
+  </type>
+  <type fullname="Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility">
+   <method name="EndSample"/>
+  </type>
+  <type fullname="Unity.Profiling.LowLevel.Unsafe.ProfilerUnsafeUtility">
+   <method name="BeginSample"/>
+  </type>
+  <type fullname="UnityEngine.GameObject">
+   <method name="GetScene_Injected"/>
+  </type>
+  <type fullname="UnityEngine.GameObject">
+   <method name="InstantiateGameObjects_Injected"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="RemoveAtSwapBack"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.IJobParallelForTransformExtensions.TransformParallelForLoopStruct`1&lt;Unity.Entities.CompanionGameObjectUpdateTransformSystem.CopyTransformJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="AddInstanceId"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="ScheduleParallelForTransform_Injected"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Entities.ChunkBaseEntityIndexJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.JobHandle">
+   <method name="CombineDependenciesInternal2_Injected"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="ScheduleParallelForDeferArraySize_Injected"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="LeakErase"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="DestroyTransformAccessArray"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="GetSortedToUserIndex"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccessArray">
+   <method name="GetSortedTransformAccess"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="SetLocalPosition"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="SetLocalRotation"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="SetLocalScale"/>
+  </type>
+  <type fullname="UnityEngine.Matrix4x4">
+   <method name="GetLossyScale_Injected"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetPosition"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetRotation"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetLocalScale"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetLocalToWorldMatrix"/>
+  </type>
+  <type fullname="UnityEngine.U2D.Clipper2D">
+   <method name="Internal_Execute_Cleanup"/>
+  </type>
+  <type fullname="UnityEngine.U2D.ClipperOffset2D">
+   <method name="Internal_Execute"/>
+  </type>
+  <type fullname="UnityEngine.U2D.ClipperOffset2D">
+   <method name="Internal_Execute_Cleanup"/>
+  </type>
+  <type fullname="UnityEngine.U2D.Clipper2D">
+   <method name="Internal_Execute_Injected"/>
+  </type>
+  <type fullname="UnityEngine.GameObject">
+   <method name="SetGameObjectsActive"/>
+  </type>
+  <type fullname="UnityEngine.Rendering.GPUDrivenProcessor">
+   <method name="FindUnsupportedMaterialsImpl_Injected"/>
+  </type>
+  <type fullname="UnityEngine.Rendering.BatchRendererGroup">
+   <method name="OcclusionTestAABB_Injected"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetLocalPosition"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetLocalRotation"/>
+  </type>
+  <type fullname="UnityEngine.LightProbesQuery">
+   <method name="CalculateInterpolatedLightAndOcclusionProbes"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="FreeTracked"/>
+  </type>
+  <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
+   <method name="MallocTracked"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Entities.EntityComponentStore.GetCreatedAndDestroyedEntitiesJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="Unity.Jobs.IJobExtensions.JobStruct`1&lt;Unity.Collections.NativeListDisposeJob&gt;">
+   <method name=".cctor"/>
+  </type>
+  <type fullname="UnityEngine.Jobs.TransformAccess">
+   <method name="GetWorldToLocalMatrix"/>
+  </type>
+ </assembly>
+</linker>
