@@ -12,7 +12,7 @@ public class ChatManager : MonoBehaviour
 
 
     private bool isActive = true;
-    private float timer = 10f;
+    private float timer = 3f;
 
     public void Start()
     {

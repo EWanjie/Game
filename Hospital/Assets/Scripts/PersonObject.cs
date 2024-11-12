@@ -24,6 +24,8 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
     private const int maxLife = 100;
     private int saveDoctor;
 
+    private bool isExist = true;
+
     private BarManager barManager;
     private ChatManager chatManager;
     private CanvasManager canvasManager;
@@ -55,9 +57,10 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
 
         barManager.UpdateHealthBar(ñharacter.life);
 
-        if (ñharacter.life <= 0 || ñharacter.doctorsList.Count == 0) // óíè÷òîæåíèå ïåğñîíàæà
+        if (isExist && (ñharacter.life <= 0 || ñharacter.doctorsList.Count == 0)) // óíè÷òîæåíèå ïåğñîíàæà
         {
             AnnihilateÑharacter();
+            isExist = false;
             return;
         }
 
@@ -83,6 +86,11 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
 
     public void SetTreatment(HelthType stationType) // íà÷àëî ëå÷åíèÿ
     {
+        Color startColor = new Color(1, 1, 1, 0);
+        SpriteRenderer sprite;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = startColor;
+
         chatManager.Show(false);
         barManager.SetTransparency(ñharacter.isTreatment);
         ñharacter.isTreatment = true;
@@ -123,6 +131,12 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
     public void SetEndHealing() // îêîí÷àíèå ëå÷åíèÿ
     {
         barManager.SetTransparency(ñharacter.isTreatment);
+
+        Color startColor = new Color(1, 1, 1, 1);
+        SpriteRenderer sprite;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = startColor;
+
         ñharacter.isTreatment = false;
     }
 
@@ -167,8 +181,6 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
 
         string fullString = new string('0', size - binaryNmb.Length);
         fullString += binaryNmb;
-
-        Debug.Log(fullString);
 
         for (int i = 0; i < fullString.Length; i++)
         {

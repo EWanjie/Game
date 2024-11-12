@@ -4,6 +4,7 @@ using UnityEditor.Tilemaps;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.U2D;
+using UnityEngine.UIElements;
 using static CursorManager;
 using static HelpStation;
 
@@ -36,8 +37,8 @@ public class MovingObject : MonoBehaviour
         chatManager = GetComponentInChildren<ChatManager>();
     }
 
-
-    /*
+/*
+    
         private void Start()
         {
            frameTimer = animationSpeed;
@@ -58,7 +59,7 @@ public class MovingObject : MonoBehaviour
                 transform.localScale = moveAnimation[currentFrame];
             }
         }
-    */
+*/    
 
     private void OnMouseDown() //нажатие
     {
@@ -200,8 +201,11 @@ public class MovingObject : MonoBehaviour
     public void OnCentre(Station station) // постановка в центр
     {
         Vector3 newVec = (Vector3)transform.position;
+        Vector3 totalScale = (Vector3)transform.localScale;
+        Vector3 scale = (Vector3)station.scale;
+
         newVec[0] = station.coordinates.x;
-        newVec[1] = station.coordinates.y;
+        newVec[1] = station.coordinates.y + scale[1] + totalScale[1];
         transform.position = newVec;
     }
 
@@ -213,8 +217,8 @@ public class MovingObject : MonoBehaviour
         Vector3 coordinates = (Vector3)station.coordinates;
         Vector3 scale = (Vector3)station.scale;
 
-        newPosition[0] = coordinates[0] + scale[0]/2;
-        newPosition[1] = coordinates[1] - scale[1]/2;
+        newPosition[0] = coordinates[0] + 5 * (scale[0] + totalScale[0]);
+        //newPosition[1] = coordinates[1] - totalScale[1];
         transform.position = newPosition;
     }
 

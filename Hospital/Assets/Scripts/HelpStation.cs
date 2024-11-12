@@ -31,8 +31,8 @@ public class HelpStation : MonoBehaviour
         station.scale = (Vector2)transform.localScale;
         station.coordinates = (Vector2)transform.position;
 
-        Sprite sprite = TypeStation.Instance.GetSprite((int)station.stationType);
-        GetComponent<SpriteRenderer>().sprite = sprite;
+        //Sprite sprite = TypeStation.Instance.GetSprite((int)station.stationType);
+        //GetComponent<SpriteRenderer>().sprite = sprite;
 
         //Destroy(GetComponent<PolygonCollider2D>());
         //gameObject.AddComponent<PolygonCollider2D>();

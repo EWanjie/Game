@@ -447,9 +447,11 @@
 "Assets/Scripts/CursorObject.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/HelpStation.cs"
+"Assets/Scripts/HurtManager.cs"
 "Assets/Scripts/MovingObject.cs"
 "Assets/Scripts/PersonObject.cs"
-"Assets/TypeStation.cs"
+"Assets/Scripts/PortalManager.cs"
+"Assets/Scripts/TypeStation.cs"
 -langversion:9.0
 /deterministic
 /optimize+
