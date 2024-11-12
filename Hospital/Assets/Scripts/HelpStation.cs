@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using static HelpStation;
 
@@ -9,21 +10,15 @@ public class HelpStation : MonoBehaviour
 
     [SerializeField] private Station station;
 
+    private bool currentIsFree = true;
+    private HurtManager heartManager;
+
     public Station StationGS { get { return station; } }
-   
-    /*
-    public enum StationType
-    {
-        Surgeon,
-        Therapist,
-        Psychologist,
-        WatingRoom
-    }
-    */
 
     private void Awake()
     {
         Instance = this;
+        heartManager = GetComponentInChildren<HurtManager>();
     }
 
     private void Start()
@@ -44,6 +39,14 @@ public class HelpStation : MonoBehaviour
     private void Update()
     {
         FindColor(station.isFree, station.move);
+
+        if(currentIsFree != station.isFree)
+        {
+            currentIsFree = station.isFree;
+            if (!station.isFree && heartManager)
+                heartManager.StartHart(station.duration);
+        }
+
     }
 
     private void FindColor(bool isFree, bool move)

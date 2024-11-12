@@ -52,17 +52,8 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
 
     private void Update()
     {
-        if (ñharacter.isTreatment)
+        if (ñharacter.isTreatment || !isExist)
             return;
-
-        barManager.UpdateHealthBar(ñharacter.life);
-
-        if (isExist && (ñharacter.life <= 0 || ñharacter.doctorsList.Count == 0)) // óíè÷òîæåíèå ïåðñîíàæà
-        {
-            AnnihilateÑharacter();
-            isExist = false;
-            return;
-        }
 
         dyingTimer -= Time.deltaTime;
 
@@ -70,6 +61,15 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
         {
             dyingTimer += dyingSpeed;
             ñharacter.life--;        
+        }
+
+        barManager.UpdateHealthBar(ñharacter.life);
+
+        if (ñharacter.life <= 0 || ñharacter.doctorsList.Count == 0) // óíè÷òîæåíèå ïåðñîíàæà
+        {
+            isExist = false;
+            AnnihilateÑharacter();
+            return;
         }
     }
 
@@ -144,7 +144,7 @@ public class PersonObject : MonoBehaviour, IPointerClickHandler
     {
         GameManager.Instance.SaveÑharacter(ñharacter.life);
 
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.5f);
     }
 
     public void OnForeground() // ïåðåäíèé ïëàí ïåðñîíàæà è èíôîðìàöèè

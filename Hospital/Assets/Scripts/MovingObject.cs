@@ -13,8 +13,7 @@ public class MovingObject : MonoBehaviour
     private float frameTimer;
     private int currentFrame = 0;
     private const float animationSpeed = 0.2f;
-    private const float coefficient = 0.85f;
-    private Vector3[] moveAnimation = {Vector3.zero, Vector3.zero};
+
 
     private bool wating = false;
 
@@ -192,10 +191,11 @@ public class MovingObject : MonoBehaviour
 
         Push(station);
 
-        station.isFree = true;
+        GetComponent<PersonObject>().SetEndHealing();
+
         treatment = TreatmentType.Start;
 
-        GetComponent<PersonObject>().SetEndHealing();
+        station.isFree = true;
     }
 
     public void OnCentre(Station station) // постановка в центр

@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         
         lifeStatus += life;
 
-        if (currentPersonCount == countOfPerson) // <=================================================
+        if (currentPersonCount == (countOfPerson + 4)) // <=================================================
         {
             Debug.Log(lifeStatus / countOfPerson); // SCORE
             Debug.Log("EndGame"); // END MEME 
